@@ -1,15 +1,15 @@
-import { agentExecutor } from "./langchain.ts";
-import type { LLMResult } from "npm:@langchain/core";
+import { feedbackAgent } from "./langchain/agents.ts";
 
-const idea = "A platform that connects people who want to learn new skills with those who can teach them.";""
+const input = "A platform that connects people who want to learn new skills with those who can teach them.";
 
 if (import.meta.main) {
-  // Pass both 'idea' and 'agent_scratchpad' to the agent
-  agentExecutor({
-    idea: idea,  // This is your business idea
-  }).then((result: LLMResult) => {
-    console.log(result);  // Output the result
-  }).catch((error) => {
-    console.error("Error:", error);  // Handle potential errors
-  });
+  const main = async () => {
+    try {
+      const result = await feedbackAgent(input, "ollama");
+      console.log("Feedback Result:", result);
+    } catch (error) {
+      console.error("Error occurred:", error); 
+    }
+  };
+  main();
 }
