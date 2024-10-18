@@ -3,7 +3,7 @@ import { Ollama } from "npm:@langchain/ollama";
 export function callModel(
   model: string,
   prompt: string,
-  options: Record<string, unknown> = {}
+  options: Record<string, string> = {}
 ): Promise<string> {
   switch (model) {
     case "ollama":
