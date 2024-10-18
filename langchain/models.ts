@@ -14,7 +14,7 @@ export function callModel(
 }
 
 export const ollama = new Ollama({
-  baseUrl: 'http://localhost:11434',
-  model: 'llama3.1',
+  baseUrl: "http://localhost:11434",
+  model: "llama3.1",
 });
 
